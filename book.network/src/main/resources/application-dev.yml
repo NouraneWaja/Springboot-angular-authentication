@@ -1,0 +1,61 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/book_social_network
+    username: root
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+      # Cette propriété configure Hibernate pour qu'il mette à jour automatiquement le schéma de la base de données.
+    show-sql: false
+    # Désactive l'affichage des requêtes SQL générées par Hibernate dans la console.
+    properties:
+      hibernate:
+        format_sql: true
+        # Formate les requêtes SQL pour les rendre plus lisibles dans les logs.
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL57Dialect
+
+  mail:
+    host: localhost
+    port: 1025
+    username: nourane
+    password: nourane
+    properties:
+      mail:
+        smtp:
+          trust: "*"
+          # Autorise tous les certificats pour SMTP.
+        auth: true
+        starttls:
+          enabled: true
+          # Active STARTTLS pour sécuriser les connexions SMTP.
+        connectiontimeout: 5000
+        timeout: 3000
+        writetimeout: 5000
+        # Configure les délais de connexion, de lecture et d'écriture pour SMTP.
+
+application:
+  security:
+    jwt:
+      secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+      # Clé secrète utilisée pour signer les JWT.
+      expiration: 86400000
+      # Durée d'expiration du token JWT (en millisecondes), ici configurée pour 1 jour.
+      refresh-token:
+        expiration: 604800000
+        # Durée d'expiration du refresh token JWT (en millisecondes), ici configurée pour 7 jours.
+  mailing:
+    frontend:
+      activation-url: http://localhost:4200/activate-account
+      # URL du frontend pour l'activation de compte.
+  file:
+    uploads:
+      photos-output-path: ./uploads
+      # Chemin où les photos téléchargées seront stockées.
+
+server:
+  port: 8088
+  # Configure le port sur lequel le serveur Spring Boot écoute, ici configuré pour le port 8088.
