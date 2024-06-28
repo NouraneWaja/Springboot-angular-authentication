@@ -1,5 +1,8 @@
 package com.nourane.book.network.email;
 
+import lombok.Getter;
+
+@Getter
 public enum EmailTemplateName {
     ACTIVATE_ACCOUNT("activate_account");
 

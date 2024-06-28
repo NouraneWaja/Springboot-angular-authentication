@@ -15,8 +15,7 @@ spring:
       hibernate:
         format_sql: true
         # Formate les requêtes SQL pour les rendre plus lisibles dans les logs.
-    database: mysql
-    database-platform: org.hibernate.dialect.MySQL57Dialect
+    database-platform: org.hibernate.dialect.MySQLDialect
 
   mail:
     host: localhost
@@ -30,7 +29,7 @@ spring:
           # Autorise tous les certificats pour SMTP.
         auth: true
         starttls:
-          enabled: true
+          enable: true
           # Active STARTTLS pour sécuriser les connexions SMTP.
         connectiontimeout: 5000
         timeout: 3000
@@ -58,4 +57,3 @@ application:
 
 server:
   port: 8088
-  # Configure le port sur lequel le serveur Spring Boot écoute, ici configuré pour le port 8088.
